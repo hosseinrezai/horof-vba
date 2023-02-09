@@ -1,0 +1,105 @@
+Attribute VB_Name = "round"
+Sub rnd0()
+    n = 0
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0"
+End Sub
+Sub rnd1()
+    n = 1
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0.0"
+End Sub
+Sub rnd2()
+    n = 2
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    
+    ActiveCell.NumberFormat = "#,##0.00"
+End Sub
+Sub rnd3()
+    n = 3
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    
+    ActiveCell.NumberFormat = "#,##0.000"
+End Sub
+Sub rnd4()
+    n = 4
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    
+    ActiveCell.NumberFormat = "#,##0.0000"
+End Sub
+Sub rndm1()
+    n = -1
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0"
+End Sub
+Sub rndm2()
+    n = -2
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0"
+End Sub
+Sub rndm3()
+    n = -3
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0"
+End Sub
+Sub rndm4()
+    n = -4
+    delrnd
+    If (Left(ActiveCell.Formula, 1) = "=") Then
+        ActiveCell.Formula = "=round(" & Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 1) & "," & n & ")"
+    Else
+        ActiveCell.Formula = "=round(" & ActiveCell.Formula & "," & n & ")"
+    End If
+    ActiveCell.NumberFormat = "#,##0"
+End Sub
+Sub delrnd()
+    If (Left(ActiveCell.Formula, 7) = "=ROUND(") Then
+        ActiveCell.Formula = Right(ActiveCell.Formula, Len(ActiveCell.Formula) - 7)
+        ActiveCell.Formula = Left(ActiveCell.Formula, Len(ActiveCell.Formula) - 3)
+        If (Right(ActiveCell.Formula, 1) = ",") Then
+            ActiveCell.Formula = Left(ActiveCell.Formula, Len(ActiveCell.Formula) - 1)
+        End If
+        ActiveCell.Formula = "=" & ActiveCell.Formula
+    End If
+    Selection.NumberFormat = "General"
+End Sub
